@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tasbeeh Counter</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+
+<script>
+    var num = 0;
+    function SubhanAllah(){
+        $('#alh').hide(),
+        $('#akb').hide()
+        msg = $('#sub').html();
+        num = num + 1;
+        $('#count').html(`Subhan Allah ${num}`);
+        $('#count').show();
+        if(num == 5){
+                document.getElementById('subhan').play();
+                if(confirm((`you have completed ${msg} 33 times. you want to continue it?`))==true){
+                    document.getElementById('subhan').pause();
+                    num = 0;
+                 
+                }
+                else{
+                    num = 0;
+                    $('#sub').css('background-color','green');
+                    $('#akb').show();
+                    $('#alh').show();
+                    $('#alh').css('background-color','rgba(255, 255, 255, 0.2');
+                    $('#akb').css('background-color','rgba(255, 255, 255, 0.2');
+
+                    document.getElementById('subhan').pause();
+                    $('#count').hide();
+
+
+
+                }
+               
+        }
+   
+    }
+    function Alhamdulillah(){
+        $('#akb').hide(),$('#sub').hide()
+        msg = $('#alh').html();
+        num = num + 1;
+        $('#count').html(`Alhamdulillah ${num}`);
+        $('#count').show();
+        if(num == 5){
+                document.getElementById('alham').play();
+                if(confirm((`you have completed ${msg} 33 times. you want to continue it?`))==true){
+                    document.getElementById('alham').pause();
+                    num = 0;
+                 
+                }
+                else{
+                    num = 0;
+                    $('#sub').show();
+                    $('#akb').show();
+                    $('#alh').css('background-color','green');
+                    $('#sub').css('background-color','rgba(255, 255, 255, 0.2');
+                    $('#akb').css('background-color','rgba(255, 255, 255, 0.2');
+
+                    document.getElementById('alham').pause();
+                    $('#count').hide();
+
+                }
+
+        }
+   
+    }
+    function AllahuAkbar(){
+        $('#sub').hide(),$('#alh').hide()
+        msg = $('#akb').html();
+        num = num + 1;
+        $('#count').html(`Allahu Akbar ${num}`);
+        $('#count').show();
+
+        if(num == 5){
+                document.getElementById('akbar').play();
+                if(confirm((`you have completed ${msg} 33 times. you want to continue it?`))==true){
+                    document.getElementById('akbar').pause();
+                    num = 0;
+                 
+                }
+                else{
+                    num = 0;
+                    $('#alh').show();
+                    $('#sub').show();
+                    $('#akb').css('background-color','green');
+                    $('#alh').css('background-color','rgba(255, 255, 255, 0.2');
+                    $('#sub').css('background-color','rgba(255, 255, 255, 0.2');
+                    document.getElementById('akbar').pause();
+                    $('#count').hide();
+                }
+                
+        }
+    }
+       function rem(){
+        if(num > 0){
+        num = num - 1;
+        $('#count').html(num);
+        }
+    }
+</script>
+</head>
+<body >
+    <audio id="subhan" src="Subhan Allah Alhamdulillah - Arabic - Song.mp3" preload="auto"></audio>
+    <audio id="alham" src="Alhamdulillah Alhamdulillah - Islamic.mp3" preload="auto"></audio>
+    <audio id="akbar" src="Allahu Akbar Allahu Akbar - Islamic Song.mp3" preload="auto"></audio>
+
+    <div class="container mt-2"  >
+        <div class="row">
+            <div class="col-lg-8  mx-auto" style="background-image:url('tas.jpg');background-repeat: no-repeat;background-size: cover;height:600px"><br>
+                <h2 class="text-light"  style="font-size: 40px;font-weight: bold;">Tashbeeh Counter</h2>
+                <br><br>
+                
+                <button id="sub" onclick="SubhanAllah()" class="btn mt-5 text-light" style="background-color:rgba(255, 255, 255, 0.2);">SubhanAllah</button><br>
+                <button id="alh" onclick="Alhamdulillah()" class="btn  mt-5 text-light" style="background-color:rgba(255, 255, 255, 0.2);">Alhamdulillah</button><br>
+                <button id ="akb" onclick="AllahuAkbar()" class="btn  mt-5 text-light" style="background-color:rgba(255, 255, 255, 0.2);">Allahu Akbar</button><br>
+                <!-- <button onclick="rem()" >-</button> -->
+                <p id ="count" style="display:none;color:white;font-size: 35px;font-weight: bold;">0</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
